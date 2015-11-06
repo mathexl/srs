@@ -12,11 +12,17 @@
 */
 Route::get('/', 'MainController@mainPage');
 Route::get('home', 'MainController@mainPage');
+Route::get('pro', 'MainController@pro');
+Route::post('createSubscription', 'MainController@createSubscription');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Contact Route
+Route::get('contact', 'ContactController@getContact');
+Route::post('contact', 'ContactController@sendMail');
 
 
 // Registration routes...
@@ -53,6 +59,8 @@ Route::post('deck/{id}/storeUser', 'DeckController@storeUser');
 Route::post('deck/{id}/deleteCard', 'DeckController@deleteCard');
 Route::post('deck/{id}/editCard', 'DeckController@editCard');
 Route::post('deck/{id}/delete', 'DeckController@deleteDeck');
+Route::post('deck/{id}/deleteUser', 'DeckController@deleteUser');
+
 
 //stat routes
 Route::get('deck/{id}/stats', 'StatsController@deckStats');
